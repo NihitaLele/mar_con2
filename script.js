@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', getCurrentImageOfTheDay);
 function getCurrentImageOfTheDay() {
   const currentDate = new Date().toISOString().split("T")[0];
   getImageOfTheDay(currentDate);
-  updateDateHeading(currentDate); // Update date in heading
+  updateDateHeading(currentDate); 
 }
 
 function getImageOfTheDay(date) {
@@ -12,7 +12,7 @@ function getImageOfTheDay(date) {
     .then(data => {
       displayImage(data);
       saveSearch(date);
-      addSearchToHistory(); // Call addSearchToHistory after fetching new search results
+      addSearchToHistory(); 
     })
     .catch(error => console.error('Error fetching image:', error));
 }
@@ -34,19 +34,19 @@ function saveSearch(date) {
 
 function addSearchToHistory() {
   const searchHistory = document.getElementById('search-history');
-  searchHistory.innerHTML = ''; // Clear existing history
+  searchHistory.innerHTML = '';
 
   let searches = JSON.parse(localStorage.getItem('searches')) || [];
   searches.forEach(search => {
     const listItem = document.createElement('li');
     const link = document.createElement('a');
     link.textContent = search;
-    link.href = '#'; // Add href attribute
-    link.classList.add('search-link'); // Add class for styling
+    link.href = '#'; 
+    link.classList.add('search-link');
     link.addEventListener('click', () => {
       getImageOfTheDay(search);
-      toggleImageVisibility(true); // Show image when a search item is clicked
-      updateDateHeading(search); // Update date in heading
+      toggleImageVisibility(true); 
+      updateDateHeading(search); 
     });
     listItem.appendChild(link);
     searchHistory.appendChild(listItem);
@@ -57,17 +57,15 @@ document.getElementById('search-form').addEventListener('submit', function(event
   event.preventDefault();
   const date = document.getElementById('search-input').value;
   getImageOfTheDay(date);
-  updateDateHeading(date); // Update date in heading
-  toggleImageVisibility(true); // Show image when new search is made
+  updateDateHeading(date); 
+  toggleImageVisibility(true); 
 });
 
-// Function to update the date in the heading
 function updateDateHeading(date) {
   const dateHeading = document.getElementById('current-date-heading');
   dateHeading.textContent = `Picture on ${date}`;
 }
 
-// Function to toggle the visibility of the current image
 function toggleImageVisibility(show) {
   const imageContainer = document.getElementById('current-image-container');
   if (show) {
