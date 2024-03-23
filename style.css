@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  margin-bottom: 20px;
+  color: white;
+  font-size: 30px;
+}
+
+#search-form {
+  margin-bottom: 20px;
+}
+
+.a1 {
+  margin-bottom: 20px;
+  background-color: black; /* Set background color to black */
+  color: white; /* Set text color to white */
+  padding: 10px; /* Add padding for better spacing */
+}
+
+#current-image-container img {
+  max-width: 100%;
+}
+
+#search-history-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#search-history {
+  list-style-type: none;
+  padding: 0;
+}
+
+.search-link {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: blue;
+}
+
+.search-link:hover {
+  text-decoration: underline;
+}
